@@ -1,0 +1,30 @@
+import csv
+import pandas as pd
+import os
+
+#appended rows to be added in new file/current file
+new_rows=[]
+#headers used to distinguish
+header = ['Company','tobe','Open','Close']
+
+#read the input file
+with open('latest_data.csv',mode='r') as reader:
+    csvFile = csv.reader(reader)
+    for row1 in csvFile:
+        row2=next(csvFile)
+        #append of open and close price of stock
+        new_rows.append(row1+row2[-1:])
+
+#write in the output file    
+with open('clean_data.csv','w') as file:
+    csvwriter = csv.writer(file)
+    csvwriter.writerow(header)
+    csvwriter.writerows(new_rows)
+    
+#removing unwanted column    
+data = pd.read_csv('clean_data.csv')
+data.pop('tobe')
+data.to_csv('lastest_data.csv')
+
+#removing unwated files
+os.remove('clean_data.csv')
