@@ -13,6 +13,11 @@ with open('latest_data.csv',mode='r') as reader:
     for row1 in csvFile:
         row2=next(csvFile)
         row3=next(csvFile)
+        # if float(row3[2]) > 100000.0:
+        row3[2] = float(row3[2]) % 50000
+        # print(row3[2])
+        if row3[2] == 0:
+            row3[2] = 50000
         #append of open and close price of stock
         new_rows.append(row1+row2[-1:]+row3[-1:])
 
