@@ -5,15 +5,16 @@ import os
 #appended rows to be added in new file/current file
 new_rows=[]
 #headers used to distinguish
-header = ['Company','tobe','Open','Close']
+header = ['Company','tobe','Open','Close','volume']
 
 #read the input file
 with open('latest_data.csv',mode='r') as reader:
     csvFile = csv.reader(reader)
     for row1 in csvFile:
         row2=next(csvFile)
+        row3=next(csvFile)
         #append of open and close price of stock
-        new_rows.append(row1+row2[-1:])
+        new_rows.append(row1+row2[-1:]+row3[-1:])
 
 #write in the output file    
 with open('clean_data.csv','w') as file:
