@@ -8,7 +8,7 @@ tickers = si.tickers_sp500()
 data_list = []
 for ticker in tickers:
     data = si.get_data(ticker)
-    latest_data = data[['open', 'close']].iloc[-1]
+    latest_data = data[['open', 'close', 'volume']].iloc[-1]
     data_list.append(latest_data)
 
 # Combine data for all tickers into a single DataFrame
