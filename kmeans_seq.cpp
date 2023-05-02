@@ -4,137 +4,146 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include <limits>
 using namespace std;
-class Kmeans
-{
-    string fileName;
-    int K; // number of clusters
-    int maxIterations ;
-    vector<double> profits; 
-    vector<double> centroids; // centroids of clusters
-    vector<double> clusters; // clusters of data points
 
-public:
-    Kmeans(string filename, int k)
+
+// Stock movements and Volumes
+class Stock
+{
+    public:
+    // string name;
+    double movement;
+    double volume;
+    int cluster;
+    Stock(double movement = 0.f, double volume = 0.f)
     {
-        this->fileName = filename;
-        this->K = k;
-        this->maxIterations = 100;
-        FileRead();
-        for(int i = 0; i < this->K; i++)
-        {
-            this->centroids.push_back(this->profits[i]); // initialize centroids with first K elements
-        }
-        for(int i = 0; i < this->profits.size(); i++)
-        {
-            this->clusters.push_back(-1); // initialize clusters with -1
-        }
+        // this->name = name;
+        this->movement = movement;
+        this->volume = volume;
     }
-    void FileRead()
-    {
-        ifstream file(this->fileName);
-        string line;
-        if (!file.is_open())
-        {
-            cout << "Unable to open file" << endl;
-            return;
-        }
-        while (std::getline(file, line)) {
-            // cout << line << endl;
-            double number = stof(line);
-            this->profits.push_back(number);
-        }
-        file.close();
-        // for(int i = 0; i < this->profits.size(); i++)
-        // {
-        //     cout << this->profits[i] << endl;
-        // }
-    }
-    void CalculateCentroids()
-    {
-        for(int i = 0; i < this->K; i++)
-        {
-            double sum = 0;
-            int count = 0;
-            for(int j = 0; j < this->clusters.size(); j++)
-            {
-                if(this->clusters[j] == i)
-                {
-                    sum += this->profits[j];
-                    count++;
-                }
-            }
-            this->centroids[i] = sum / count;
-        }
-    }
-    void CalculateClusters()
-    {
-        // Run for maxIterations
-        for(int i = 0; i < this->maxIterations; i++)
-        {
-            // Run for all data points
-            for(int j = 0; j < this->profits.size(); j++)
-            {
-                double minDistance = INT8_MAX;
-                int cluster = -1;
-                // Run for all centroids
-                for(int k = 0; k < this->K; k++)
-                {
-                    double distance = abs(this->profits[j] - this->centroids[k]);
-                    if(distance < minDistance)
-                    {
-                        minDistance = distance;
-                        cluster = k;
-                    }
-                }
-                this->clusters[j] = cluster;   
-            }
-            // Update Centroids
-            CalculateCentroids();
-        }
-    }
-    void ShowClusters()
-    {  
-        for (int i = 0; i < K; i++)
-        {
-            cout << "Cluster " << i << ": ";
-            for (int j = 0; j < profits.size(); j++)
-            {
-                if (clusters[j] == i)
-                {
-                    cout << "- " << profits[j] << endl ;
-                }
-            }
-            cout << endl;
-        }
-    }
-    void run()
-    {
-        CalculateClusters();
-        ShowClusters();
-    }
-    void SaveInData()
-    {
-        ofstream fout;
-        fout.open("newData.csv");
-        for(int i = 0; i < this->profits.size(); i++)
-        {
-            fout << this->profits[i] << ", " << this->clusters[i] << endl;
-        }
-        fout.close();
-    }
-    
 };
 
+class KMeans
+{
+    public:
+    int K;
+    int N;
+    int max_iter;
+    vector<Stock> stocks;
+    vector<Stock> centroids;
 
+    KMeans(string fileName,  int K, int N, int max_iter)
+    {
+        this->K = K;
+        this->N = N;
+        this->max_iter = max_iter;
+        DataRead(fileName);
+    }
+    void DataRead(string fileName)
+    {
+        ifstream file(fileName);
+        string line;
+        while(getline(file, line))
+        {
+            stringstream ss(line);
+            string comma;
+            double movement;
+            long double volume;
+            ss >> movement >> comma >> volume;
+            Stock stock(movement, volume);
+            stocks.push_back(stock);
+        }
+    }
+    void mean_recompute()
+    {
+        int count[K];
+        Stock sum[K];
+        for(int i = 0; i < this->N; i++)
+        {
+            count[stocks[i].cluster]++;
+            sum[stocks[i].cluster] = addTwo(sum[stocks[i].cluster], stocks[i]);
+        }
+        for(int i = 0; i < this->K; i++)
+        {
+            centroids[i].movement = sum[i].movement / count[i];
+            centroids[i].volume = sum[i].volume / count[i];
+        }
+
+    }
+    Stock addTwo(Stock a, Stock b)
+    {
+        Stock c;
+        c.movement = a.movement + b.movement;
+        c.volume = a.volume + b.volume;
+        return c;
+    }
+    void AssignClusters()
+    {
+        vector<double> distances(this->K, 0);
+        for(int i = 0; i < N; i++)
+        {
+            for(int j = 0; j < this->K; j++)
+            {
+                distances[j] = EuclideanDistance(stocks[i], centroids[j]);
+            }
+            int index = 0;
+            for (int i = 1; i < this->K; i++)
+            {
+                if (distances[i] < distances[index])
+                {
+                    index = i;
+                }
+            }
+            stocks[i].cluster = index;
+        }
+    }
+    double EuclideanDistance(Stock a, Stock b)
+    {
+        double x = a.movement - b.movement;
+        double y = a.volume - b.volume;
+        return sqrt(x*x + y*y);
+    }
+    void Run()
+    {
+        // Initialize centroids
+        for(int i = 0; i < this->K; i++)
+        {
+            centroids.push_back(stocks[i]);
+        }
+        for(int i = 0; i < this->max_iter; i++)
+        {
+            AssignClusters();
+            mean_recompute();
+        }
+    }
+    // print points by clusters in a table
+    void Print()
+    {
+        for(int i = 0; i < this->K; i++)
+        {
+            cout << "Cluster " << i << endl;
+            for(int j = 0; j < this->N; j++)
+            {
+                if(stocks[j].cluster == i)
+                {
+                    cout << " ==> " <<   stocks[j].movement << " " << stocks[j].volume << endl;
+                }
+            }
+        }
+    }
+};
 int main(int argc, char const *argv[])
 {
-    Kmeans kmeans("data.csv", 5);
-    // kmeans.CalculateClusters();
-    // kmeans.ShowClusters();
-    kmeans.run();
-    kmeans.SaveInData();
+    string fileName = "normalized_data.csv";
+    int K = 5;
+    int N = 500;
+    int max_iter = 10;
+    KMeans kmeans(fileName, K, N, max_iter);
+    kmeans.Run();
+    kmeans.Print();
 
-
+    
     return 0;
 }
+

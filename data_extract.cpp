@@ -6,42 +6,26 @@
 #include <sstream>
 #include <unistd.h>
 #include <stdlib.h>
+#include <numeric>
+#include <cmath>
+
 using namespace std;
 
-void normalize(std::vector<std::vector<double>>& data)
-{
-    // Calculate mean and standard deviation for each column
-    std::vector<double> means(data[0].size(), 0);
-    std::vector<double> std_devs(data[0].size(), 0);
-    for (int col = 0; col < data[0].size(); col++)
-    {
-        double sum = 0;
-        double sq_sum = 0;
-        for (int row = 0; row < data.size(); row++)
-        {
-            sum += data[row][col];
-        }
-        means[col] = sum / data.size();
-        for (int row = 0; row < data.size(); row++)
-        {
-            sq_sum += (data[row][col] - means[col]) * (data[row][col] - means[col]);
-        }
-        std_devs[col] = sqrt(sq_sum / data.size());
-        // cout << "Mean: " << means[col] << " Std_dev: " << std_devs[col] << endl;
+vector<double> normalize(vector<double> vec) {
+    vector<double> normalizedVec(vec.size());
+    double vecMagnitude = 0.0;
+    
+    for (int i = 0; i < vec.size(); i++) {
+        vecMagnitude += vec[i] * vec[i];
     }
-
-    // Normalize each column
-    for (int col = 0; col < data[0].size(); col++)
-    {
-        for (int row = 0; row < data.size(); row++)
-        {
-            data[row][col] = (data[row][col] - means[col]) / std_devs[col];
-        }
+    vecMagnitude = sqrt(vecMagnitude);
+    
+    for (int i = 0; i < vec.size(); i++) {
+        normalizedVec[i] = vec[i] / vecMagnitude;
     }
+    
+    return normalizedVec;
 }
-
-
-
 
 int main(int argc, char const *argv[])
 {
@@ -87,7 +71,7 @@ int main(int argc, char const *argv[])
     cout << open_values.size() << " " << close_values.size() << endl;
     for(int i = 0; i < open_values.size(); i++)
     {
-        fout1 << open_values[i] - close_values[i] << ", " << volumes[i] << endl;
+        fout1 << close_values[i] - open_values[i] << ", " << volumes[i] << endl;
         // fout2 << i << ", " <<  open_values[i] - close_values[i] << ", " << volumes[i] << endl;
     }
     fout1.close();
@@ -125,34 +109,22 @@ int main(int argc, char const *argv[])
     }
     cout << "Max: " << max << endl;
     cout << "Min: " << min << endl;
-    
-    std::vector<std::vector<double>> data;
-    for (int i = 0; i < open_values.size(); i++)
-    {
-        std::vector<double> row = {open_values[i] - close_values[i], volumes[i]};
-        data.push_back(row);
-    }
 
 
-    // print data
-    cout << "Data: " << data[0].size() << ", " << data.size()  << endl;
-    // for(int i = 0; i < data.size(); i++)
-    // {
-    //     for(int j = 0; j < data[0].size(); j++)
-    //     {
-    //         cout << data[i][j] << ", ";
-    //     }
-    //     cout << endl;
-    // }
-
-
-    normalize(data);
-    fout1.open("normalized_data.csv");
+    vector<double> profits;
     for(int i = 0; i < open_values.size(); i++)
     {
-        fout1 << data[0][i]  << ", " << data[1][i] << endl;
+        profits.push_back(close_values[i] - open_values[i]);
     }
-    fout1.close();
+    
+    volumes = normalize(volumes);
+
+    fout1.open("normalized_data.csv");
+
+    for(int i = 0; i < profits.size(); i++)
+    {
+        fout1 << profits[i] << ", " << volumes[i] << endl;
+    }
 
 
 
