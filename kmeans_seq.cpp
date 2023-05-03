@@ -21,6 +21,7 @@ class Stock
         // this->name = name;
         this->movement = movement;
         this->volume = volume;
+        this->cluster = -1;
     }
 };
 
@@ -57,8 +58,8 @@ class KMeans
     }
     void mean_recompute()
     {
-        int count[K];
-        Stock sum[K];
+        int count[K]={0};
+        Stock sum[K]={Stock(0,0)};
         for(int i = 0; i < this->N; i++)
         {
             count[stocks[i].cluster]++;
