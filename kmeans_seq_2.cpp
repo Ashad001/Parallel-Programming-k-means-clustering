@@ -82,24 +82,8 @@ public:
             stocks[i].ticker = names[i];
             stocks[i].parameters = data[i];
         }
-        // print stock
-        for (int i = 0; i < this->N; i++)
-        {
-            for (int j = 0; j < NO_OF_PARAMS; j++)
-            {
-                // cout << stocks[i].parameters[j] << " ";
-            }
-            // cout << endl;
-        }
-
-        // count number of rows
-        int N = data.size();
-        cout << "Number of rows: " << N << endl;
-        // count number of each columns
-        int M = data[100].size();
-        cout << "Number of columns: " << M << endl;
     }
-    void mean_recompute()
+    void mean_recompute() // Recompute the centroids for each cluster by taking the mean of all points in the cluster
     {
         int count[K] = {0};
         Stock sum[K] = {Stock()};
@@ -113,7 +97,7 @@ public:
             centroids[i] = divideTwo(sum[i], count[i]);
         }
     }
-    Stock divideTwo(const Stock &stock1, const int count)
+    Stock divideTwo(const Stock &stock1, const int count) // Divide a stock by a number
     {
         Stock c;
         for (int i = 0; i < NO_OF_PARAMS; i++)
@@ -122,7 +106,7 @@ public:
         }
         return c;
     }
-    Stock addTwo(const Stock &a, const Stock &b)
+    Stock addTwo(const Stock &a, const Stock &b) // Add two stocks
     {
         Stock c;
         for (int i = 0; i < NO_OF_PARAMS; i++)
@@ -131,7 +115,7 @@ public:
         }
         return c;
     }
-    void AssignClusters()
+    void AssignClusters() // Assign each point to the closest cluster
     {
         vector<double> distances(this->K, 0);
         for (int i = 0; i < N; i++)
@@ -160,7 +144,7 @@ public:
         }
         return distance;
     }
-    void run()
+    void run() // Run the K-means algorithm
     {
         // Initialize centroids randomly
         for (int i = 0; i < this->K; i++)
@@ -197,7 +181,7 @@ int main(int argc, char const *argv[])
 {
     string fileName = "StockData.csv";
     int K = 5;
-    int N = 380;
+    int N = 300;
     int max_iter = 300;
     chrono::duration<double> elapsed;
     KMeans kmeans(fileName, K, N, max_iter);
@@ -206,7 +190,7 @@ int main(int argc, char const *argv[])
     kmeans.Print();
     auto finish = chrono::high_resolution_clock::now();
     elapsed = finish - start;
-    cout << "Elapsed time: " << elapsed.count() << " s\n";
+    cout << "\n\nElapsed time: " << elapsed.count() << " s\n\n";
 
     return 0;
 }

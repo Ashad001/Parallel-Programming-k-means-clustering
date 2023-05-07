@@ -82,22 +82,6 @@ public:
             stocks[i].ticker = names[i];
             stocks[i].parameters = data[i];
         }
-        // print stock
-        for (int i = 0; i < this->N; i++)
-        {
-            for (int j = 0; j < NO_OF_PARAMS; j++)
-            {
-                // cout << stocks[i].parameters[j] << " ";
-            }
-            // cout << endl;
-        }
-
-        // count number of rows
-        int N = data.size();
-        cout << "Number of rows: " << N << endl;
-        // count number of each columns
-        int M = data[100].size();
-        cout << "Number of columns: " << M << endl;
     }
     void mean_recompute()
     {
@@ -197,8 +181,8 @@ int main(int argc, char const *argv[])
 {
     string fileName = "StockData.csv";
     int K = 5;
-    int N = 380;
-    int max_iter = 300;
+    int N = 350;
+    int max_iter = 280;
     chrono::duration<double> elapsed;
     KMeans kmeans(fileName, K, N, max_iter);
     auto start = chrono::high_resolution_clock::now();
@@ -206,7 +190,7 @@ int main(int argc, char const *argv[])
     kmeans.Print();
     auto finish = chrono::high_resolution_clock::now();
     elapsed = finish - start;
-    cout << "Elapsed time: " << elapsed.count() << " s\n";
+    cout << "\n\nElapsed time: " << elapsed.count() << " s\n\n";
 
     return 0;
 }

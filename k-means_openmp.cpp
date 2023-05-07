@@ -98,22 +98,6 @@ public:
             stocks[i].ticker = names[i];
             stocks[i].parameters = data[i];
         }
-        // print stock
-        for (int i = 0; i < this->N; i++)
-        {
-            for (int j = 0; j < NO_OF_PARAMS; j++)
-            {
-                // cout << stocks[i].parameters[j] << " ";
-            }
-            // cout << endl;
-        }
-
-        // count number of rows
-        int N = data.size();
-        cout << "Number of rows: " << N << endl;
-        // count number of each columns
-        int M = data[100].size();
-        cout << "Number of columns: " << M << endl;
     }
     void mean_recompute()
     {
@@ -209,16 +193,16 @@ public:
     void Print()
     {
         ofstream file("output.csv");
-// #pragma omp parallel for
+        // #pragma omp parallel for
         for (int i = 0; i < this->K; i++)
         {
-            cout << "Cluster " << i << endl;
+            // cout << "Cluster " << i << endl;
             for (int j = 0; j < this->N; j++)
             {
                 if (stocks[j].cluster == i)
                 {
                     file << stocks[j].ticker << ", " << stocks[j].parameters[0] << ", " << stocks[j].parameters[1] << ", " << stocks[j].parameters[2] << ", " << stocks[j].parameters[3] << ", " << stocks[j].parameters[4] << ", " << stocks[j].cluster << endl;
-                    cout << stocks[j].parameters[0] << endl;
+                    // cout << stocks[j].parameters[0] << endl;
                 }
             }
         }
@@ -237,6 +221,6 @@ int main(int argc, char const *argv[])
     kmeans.Print();
     auto finish = chrono::high_resolution_clock::now();
     elapsed = finish - start;
-    cout << "Elapsed time: " << elapsed.count() << " s\n";
+    cout <<  "\n\nElapsed time: " << elapsed.count() << " s\n\n";
     return 0;
 }
