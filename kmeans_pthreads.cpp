@@ -13,6 +13,7 @@ struct Stock
 {
     vector<double> parameters = vector<double>(NO_OF_PARAMS, 0);
     int cluster;
+    string ticker;
     Stock()
     {
         cluster = -1;
@@ -27,6 +28,7 @@ public:
     int max_iter;
     vector<Stock> stocks;
     vector<Stock> centroids;
+    vector<string> names;
 
     KMeans(string fileName, int K, int N, int max_iter)
     {
@@ -58,16 +60,26 @@ public:
             vector<double> row;
             stringstream ss(line);
             string value_str;
+            int count = 0;
             while (getline(ss, value_str, ','))
             {
-                double value = stod(value_str);
-                row.push_back(value);
+                if (count == 0)
+                {
+                    names.push_back(value_str);
+                }
+                if (count != 0)
+                {
+                    double value = stod(value_str);
+                    row.push_back(value);
+                }
+                count++;
             }
             data.push_back(row);
         }
         // put data in stocks
-        for (int i = 0; i < this->N ; i++)
+        for (int i = 0; i < this->N; i++)
         {
+            stocks[i].ticker = names[i];
             stocks[i].parameters = data[i];
         }
         // print stock
@@ -96,7 +108,7 @@ public:
             count[stocks[i].cluster]++;
             sum[stocks[i].cluster] = addTwo(sum[stocks[i].cluster], stocks[i]);
         }
-        for(int i = 0; i < this->K; i++)
+        for (int i = 0; i < this->K; i++)
         {
             centroids[i] = divideTwo(sum[i], count[i]);
         }
@@ -104,7 +116,7 @@ public:
     Stock divideTwo(const Stock &stock1, const int count)
     {
         Stock c;
-        for(int i = 0; i < NO_OF_PARAMS; i++)
+        for (int i = 0; i < NO_OF_PARAMS; i++)
         {
             c.parameters[i] = stock1.parameters[i] / static_cast<double>(count);
         }
@@ -113,7 +125,7 @@ public:
     Stock addTwo(const Stock &a, const Stock &b)
     {
         Stock c;
-        for(int i = 0; i < NO_OF_PARAMS; i++)
+        for (int i = 0; i < NO_OF_PARAMS; i++)
         {
             c.parameters[i] = a.parameters[i] + b.parameters[i];
         }
@@ -142,7 +154,7 @@ public:
     double computeDistance(const Stock a, const Stock b)
     {
         double distance = 0.0;
-        for(int i = 0; i < NO_OF_PARAMS; i++)
+        for (int i = 0; i < NO_OF_PARAMS; i++)
         {
             distance += pow(a.parameters[i] - b.parameters[i], 2);
         }
@@ -168,14 +180,14 @@ public:
         ofstream file("output.csv");
         for (int i = 0; i < this->K; i++)
         {
-            cout << "Cluster " << i << endl;
+            // cout << "Cluster " << i << endl;
             for (int j = 0; j < this->N; j++)
             {
                 if (stocks[j].cluster == i)
                 {
                     // Print Names
-                    file << stocks[j].parameters[0] << ", " << stocks[j].parameters[1] << ", " << stocks[j].parameters[2] << ", " << stocks[j].parameters[3] << ", " << stocks[j].parameters[4] << ", " << stocks[j].cluster << endl;
-                    cout << stocks[j].parameters[0] << endl;
+                    file << stocks[j].ticker << ", " <<  stocks[j].parameters[0] << ", " << stocks[j].parameters[1] << ", " << stocks[j].parameters[2] << ", " << stocks[j].parameters[3] << ", " << stocks[j].parameters[4] << ", " << stocks[j].cluster << endl;
+                    // cout << stocks[j].parameters[0] << endl;
                 }
             }
         }
@@ -185,11 +197,11 @@ int main(int argc, char const *argv[])
 {
     string fileName = "StockData.csv";
     int K = 5;
-    int N = 300;
-    int max_iter = 500;
+    int N = 380;
+    int max_iter = 300;
     chrono::duration<double> elapsed;
-    auto start = chrono::high_resolution_clock::now();
     KMeans kmeans(fileName, K, N, max_iter);
+    auto start = chrono::high_resolution_clock::now();
     kmeans.run();
     kmeans.Print();
     auto finish = chrono::high_resolution_clock::now();

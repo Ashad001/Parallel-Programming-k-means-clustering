@@ -1,0 +1,381 @@
+Ticker, Feature1, Feature2, Feature3, Feature4, Feature5, Cluster
+Berkshire Hathaway, -6.24763, -0.0980111, 4, 3, 5, 0
+Cardinal Health, -6.16954, -0.283039, 4, 3, 5, 0
+JPMorgan Chase, -6.37764, 0.159503, 1, 3, 5, 0
+Lowe's, -7.01586, -0.0223753, 1, 3, 6, 0
+State Farm Insurance, -5.87554, -0.121516, 4, 3, 5, 0
+General Electric, -6.56454, -0.0731864, 1, 3, 6, 0
+Goldman Sachs Group, -6.69624, -0.0930207, 1, 3, 6, 0
+HCA Healthcare, -5.83177, -0.0138238, 4, 3, 5, 0
+New York Life Insurance, -6.20923, -0.0769188, 4, 3, 5, 0
+StoneX Group, -5.40486, -0.196297, 4, 5, 5, 0
+Plains GP Holdings, -6.40279, 0.00233501, 1, 3, 5, 0
+General Dynamics, -5.93434, -0.0398406, 4, 3, 5, 0
+USAA, -7.06477, 0.235155, 1, 3, 6, 0
+3M, -6.32014, 0.0483906, 1, 3, 5, 0
+Travelers, -6.02022, -0.0541766, 4, 3, 5, 0
+Qualcomm, -5.80283, -0.276443, 4, 3, 5, 0
+Delta Air Lines, -7.47074, 0.25531, 1, 4, 6, 0
+Starbucks, -6.03735, 0.20444, 4, 3, 5, 0
+Micron Technology, -6.12705, 0.023553, 4, 3, 5, 0
+Lennar, -6.71685, -0.508075, 1, 3, 6, 0
+NRG Energy, -6.44258, 0.0178884, 1, 3, 5, 0
+KKR, -6.18089, -0.00390568, 4, 3, 5, 0
+Kraft Heinz, -6.34339, -0.11663, 1, 3, 5, 0
+Penske Automotive Group, -6.12557, 0.101577, 4, 3, 5, 0
+Rite Aid, -5.98829, -0.00532422, 4, 3, 5, 0
+Blackstone, -6.46094, 0.00854027, 1, 3, 5, 0
+International Paper, -5.50653, 0.0416913, 4, 5, 5, 0
+Altria Group, -5.62534, -0.0590683, 4, 3, 5, 0
+Carrier Global, -6.55077, -0.233124, 1, 3, 6, 0
+Cleveland-Cliffs, -6.66181, 0.022085, 1, 3, 6, 0
+Sherwin-Williams, -5.7818, -0.75724, 4, 3, 5, 0
+PNC Financial Services Group, -6.05588, -0.139377, 4, 3, 5, 0
+Tenet Healthcare, -6.72108, -1.45e-005, 1, 3, 6, 0
+BlackRock, -5.73506, -0.114569, 4, 3, 5, 0
+Lear, -5.50333, 0.0536144, 4, 5, 5, 0
+Lincoln National, -6.13599, -0.107481, 4, 3, 5, 0
+Charles Schwab, -6.17462, -0.046641, 4, 3, 5, 0
+WestRock, -5.63821, -0.148854, 4, 3, 5, 0
+WESCO International, -5.87395, -0.0370912, 4, 3, 5, 0
+General Mills, -5.77114, -0.01545, 4, 3, 5, 0
+Tenneco, -5.70769, -0.0231013, 4, 3, 5, 0
+DISH Network, -5.84028, -0.0241696, 4, 3, 5, 0
+DXC Technology, -6.3991, -0.168859, 1, 3, 5, 0
+DuPont, -5.93293, -0.100463, 4, 3, 5, 0
+BJ's Wholesale Club, -6.31637, -0.0497096, 1, 3, 5, 0
+Cheniere Energy, -6.39275, 0.0190093, 1, 3, 5, 0
+Synchrony Financial, -7.17748, -0.0523561, 1, 3, 6, 0
+Guardian Life Ins. Co. of America, -5.73123, -0.0537498, 4, 3, 5, 0
+Lam Research, -9.52108, 0.0392417, 1, 4, 7, 0
+Fluor, -6.64425, 0.0473676, 1, 3, 6, 0
+Farmers Insurance Exchange, -5.83242, -0.173836, 4, 3, 5, 0
+Pacific Life, -6.46428, -0.128909, 1, 3, 5, 0
+Fidelity National Information Services, -6.27414, -0.0249016, 4, 3, 5, 0
+Marriott International, -6.56928, -0.0492222, 1, 3, 6, 0
+Consolidated Edison, -5.72861, 0.0821472, 4, 3, 5, 0
+Fox, -7.11587, -0.223216, 1, 3, 6, 0
+Tractor Supply, -6.02533, 0.0120175, 4, 3, 5, 0
+Henry Schein, -7.01624, -0.104203, 1, 3, 6, 0
+Mosaic, -6.01367, 0.247194, 4, 3, 5, 0
+Newmont, -5.87418, -0.0127127, 4, 3, 5, 0
+J.B. Hunt Transport Services, -6.07729, -0.0922172, 4, 3, 5, 0
+Unum Group, -5.58868, 0.0393917, 4, 3, 5, 0
+Alleghany, -5.94946, -0.316145, 4, 3, 5, 0
+Mutual of Omaha Insurance, -6.75707, -0.193127, 1, 3, 6, 0
+Hormel Foods, -4.94032, -0.0887561, 4, 5, 4, 0
+Icahn Enterprises, -5.92992, 0.176199, 4, 3, 5, 0
+Conagra Brands, -6.60492, -0.0936277, 1, 3, 6, 0
+Ally Financial, -6.34413, 0.233465, 1, 3, 5, 0
+Air Products & Chemicals, -6.22997, -0.0858063, 4, 3, 5, 0
+Interpublic Group, -6.8691, -0.22835, 1, 3, 6, 0
+News Corp., -5.7434, 0.171486, 4, 3, 5, 0
+Costco Wholesale, -6.22064, 0.0680322, 4, 3, 5, 1
+Walgreens Boots Alliance, -5.97137, -0.141377, 4, 3, 5, 1
+Marathon Petroleum, -7.01564, -0.048741, 1, 3, 6, 1
+Verizon Communications, -9.37761, 0.111222, 1, 4, 7, 1
+Phillips 66, -6.25997, 0.303796, 4, 3, 5, 1
+Dell Technologies, -7.1397, 0.107224, 1, 3, 6, 1
+Target, -7.03715, 0.409664, 1, 3, 6, 1
+UPS, -6.38217, 0.205515, 1, 3, 5, 1
+PepsiCo, -6.59409, 0.0365572, 1, 3, 6, 1
+Intel, -5.71981, -0.0468825, 4, 3, 5, 1
+IBM, -7.72665, -0.123274, 1, 4, 6, 1
+Albertsons, -6.0692, 0.206627, 4, 3, 5, 1
+Walt Disney, -5.24938, -0.132295, 4, 5, 4, 1
+Energy Transfer, -5.90127, 0.0217349, 4, 3, 5, 1
+Raytheon Technologies, -7.58491, 0.106608, 1, 4, 6, 1
+HP, -9.42689, 0.533203, 1, 4, 7, 1
+Caterpillar, -5.41695, 0.495969, 4, 5, 5, 1
+Cisco Systems, -9.30766, -0.173282, 1, 4, 7, 1
+TIAA, -7.49008, -0.0217208, 1, 4, 6, 1
+Northwestern Mutual, -4.73412, 0.186038, 4, 5, 4, 1
+World Fuel Services, -5.85003, 0.0860247, 4, 3, 5, 1
+Mondelez International, -6.90614, -0.077693, 1, 3, 6, 1
+Gilead Sciences, -5.9106, -0.214564, 4, 3, 5, 1
+Occidental Petroleum, -8.20448, 0.318899, 1, 4, 7, 1
+PayPal Holdings, -7.70434, 0.141565, 1, 4, 6, 1
+Cummins, -6.35414, -0.124139, 1, 3, 5, 1
+U.S. Bancorp, -6.05632, -0.102194, 4, 3, 5, 1
+C.H. Robinson Worldwide, -4.67488, 0.262797, 4, 5, 4, 1
+Whirlpool, -7.38616, 0.230836, 1, 4, 6, 1
+Avnet, -6.67291, -0.000229605, 1, 3, 6, 1
+Goodyear Tire & Rubber, -7.37143, -0.0314043, 1, 4, 6, 1
+Stryker, -7.21651, 0.0853158, 1, 3, 6, 1
+Gap, -11.6123, 0.0602779, 1, 4, 7, 1
+Estée Lauder, -5.05921, 0.318091, 4, 5, 4, 1
+Laboratory Corp. of America, -6.69878, -0.364782, 1, 3, 6, 1
+Adobe, -7.07209, 0.102317, 1, 3, 6, 1
+Corteva, -7.59305, -0.204079, 1, 4, 6, 1
+DTE Energy, -7.0867, -0.00537676, 1, 3, 6, 1
+Halliburton, -4.1519, -0.00643268, 5, 5, 4, 1
+AutoZone, -7.62829, 0.0908094, 1, 4, 6, 1
+AECOM, -6.82142, 0.0647958, 1, 3, 6, 1
+Jacobs Engineering Group, -5.47552, 0.150504, 4, 5, 5, 1
+IQVIA Holdings, -9.08949, 0.109725, 1, 4, 7, 1
+Wayfair, -5.79968, 0.0209284, 4, 3, 5, 1
+Ameriprise Financial, -8.72728, -0.0470776, 1, 4, 7, 1
+Rocket Companies, -8.06737, 0.0106003, 1, 4, 7, 1
+Crown Holdings, -6.37887, 0.444482, 1, 3, 5, 1
+Carvana, -5.18455, 0.18591, 4, 5, 4, 1
+Sonic Automotive, -7.15701, 0.108034, 1, 3, 6, 1
+eBay, -7.82138, -0.061676, 1, 4, 6, 1
+Thor Industries, -9.47429, -0.140616, 1, 4, 7, 1
+Dick's Sporting Goods, -8.2853, -0.143914, 1, 4, 7, 1
+Alcoa, -6.59787, 0.0360108, 1, 3, 6, 1
+Boston Scientific, -3.67746, -0.00208861, 5, 1, 1, 1
+Republic Services, -6.68579, -0.0957626, 1, 3, 6, 1
+Norfolk Southern, -10.4778, 0.0189965, 1, 4, 7, 1
+Caesars Entertainment, -7.96616, -0.123386, 1, 4, 6, 1
+Williams, -8.1098, -0.0733132, 1, 4, 7, 1
+Weyerhaeuser, -4.83317, 0.781853, 4, 5, 4, 1
+Raymond James Financial, -7.8962, -0.0888236, 1, 4, 6, 1
+EMCOR Group, -7.03675, -0.156111, 1, 3, 6, 1
+Eversource Energy, -7.98639, 0.130107, 1, 4, 6, 1
+Public Service Enterprise Group, -7.06821, 0.187661, 1, 3, 6, 1
+United Rentals, -4.54877, 0.291579, 4, 5, 4, 1
+Ryder System, -6.01293, 0.0349057, 4, 3, 5, 1
+Insight Enterprises, -9.28404, -0.0368957, 1, 4, 7, 1
+VF, -8.04913, 0.275587, 1, 4, 7, 1
+McKesson, -1.62247, -0.355541, 2, 6, 2, 2
+AT&T, 1.95241, 0.105507, 3, 2, 3, 2
+Home Depot, -1.40804, 0.0500674, 2, 6, 2, 2
+Kroger, -0.245574, -0.38824, 3, 2, 3, 2
+Johnson & Johnson, -2.86671, -0.256974, 5, 1, 1, 2
+Archer Daniels Midland, -1.24071, 0.137652, 2, 6, 2, 2
+FedEx, -1.44223, 0.0659096, 2, 6, 2, 2
+Wells Fargo, -0.161447, 0.324288, 3, 2, 3, 2
+Freddie Mac, -0.821049, -0.478543, 2, 6, 2, 2
+AbbVie, -0.81488, 0.363334, 2, 6, 2, 2
+Nationwide, -1.61019, -0.0902404, 2, 6, 2, 2
+Tyson Foods, -1.18929, 0.000804949, 2, 6, 2, 2
+American Express, -2.30139, -0.425932, 2, 6, 2, 2
+Oracle, -0.761941, -0.256638, 2, 6, 2, 2
+Thermo Fisher Scientific, -1.03062, -0.253641, 2, 6, 2, 2
+Nucor, -1.54217, -0.103076, 2, 6, 2, 2
+Massachusetts Mutual Life Insurance, -2.30879, -0.41034, 2, 6, 2, 2
+Arrow Electronics, -0.970364, 0.0877481, 2, 6, 2, 2
+Dollar General, 1.54977, 1.02702, 3, 2, 3, 2
+American Airlines Group, -1.70068, -0.607043, 2, 6, 2, 2
+Netflix, -0.96603, 0.312179, 2, 6, 2, 2
+Broadcom, -0.918353, -0.277881, 2, 6, 2, 2
+Duke Energy, -1.28685, -0.0856287, 2, 6, 2, 2
+Southern, -5.28346, -0.140573, 4, 5, 4, 2
+Truist Financial, -2.22439, -0.297217, 2, 6, 2, 2
+Applied Materials, 1.60234, 0.188074, 3, 2, 3, 2
+Freeport-McMoRan, -1.27832, 0.0101769, 2, 6, 2, 2
+Lithia Motors, -0.815395, -0.0493644, 2, 6, 2, 2
+Union Pacific, -0.581559, 0.222737, 3, 2, 3, 2
+Kimberly-Clark, 0.104425, 0.123683, 3, 2, 3, 2
+Genuine Parts, -3.16241, 0.102443, 5, 1, 1, 2
+Moderna, -2.10633, -0.00569142, 2, 6, 2, 2
+American Electric Power, -1.30056, -0.0505349, 2, 6, 2, 2
+Reinsurance Group of America, -2.61103, 0.124778, 5, 1, 1, 2
+Oneok, -0.616066, 0.222162, 3, 2, 3, 2
+Regeneron Pharmaceuticals, -4.55843, -0.270777, 4, 5, 4, 2
+Fidelity National Financial, 0.876091, 0.864345, 3, 2, 3, 2
+Pioneer Natural Resources, -1.53965, 0.201889, 2, 6, 2, 2
+American Family Insurance Group, -0.540222, -0.113312, 3, 2, 3, 2
+Parker-Hannifin, 0.235427, -0.310989, 3, 2, 3, 2
+Omnicom Group, -1.74202, 0.136272, 2, 6, 2, 2
+Principal Financial, -1.20944, -0.13232, 2, 6, 2, 2
+Kellogg, 0.704503, -0.439155, 3, 2, 3, 2
+Corning, -1.65756, -0.101497, 2, 6, 2, 2
+W.W. Grainger, -2.60571, -0.63071, 5, 1, 1, 2
+Quanta Services, -0.235245, -0.267358, 3, 2, 3, 2
+Sempra, -1.00407, 0.0460919, 2, 6, 2, 2
+Markel, 0.251759, 0.484043, 3, 2, 3, 2
+Baxter International, -2.18291, -0.0749548, 2, 6, 2, 2
+Ecolab, -2.95503, -0.106696, 5, 1, 1, 2
+CSX, -0.630303, 0.200835, 3, 2, 3, 2
+Textron, -1.5322, 0.0604734, 2, 6, 2, 2
+Warner Bros. Discovery, -2.7527, -0.760055, 5, 1, 1, 2
+Assurant, -1.23654, 0.201461, 2, 6, 2, 2
+AES, -0.970499, -0.439148, 2, 6, 2, 2
+AGCO, -0.60423, -0.0254226, 3, 2, 3, 2
+Biogen, -0.663583, 0.255117, 3, 2, 3, 2
+Booking Holdings, 0.853819, 0.394113, 3, 2, 3, 2
+Amphenol, -4.74945, -0.249058, 4, 5, 4, 2
+FirstEnergy, -2.46234, -0.296866, 2, 1, 1, 2
+Newell Brands, -3.51645, -0.327632, 5, 1, 1, 2
+Yum China Holdings, -1.75322, -0.125106, 2, 6, 2, 2
+Owens & Minor, -1.702, -0.642493, 2, 6, 2, 2
+Univar Solutions, -3.90486, -0.690871, 5, 1, 1, 2
+W.R. Berkley, 0.0425606, 0.343133, 3, 2, 3, 2
+Western & Southern Financial Group, -1.06388, -0.434362, 2, 6, 2, 2
+American Tower, -1.61398, 0.306733, 2, 6, 2, 2
+Old Republic International, -1.06168, -0.122377, 2, 6, 2, 2
+Avis Budget Group, -2.05992, 0.10085, 2, 6, 2, 2
+Walmart, -4.40367, -0.120967, 4, 5, 4, 3
+Apple, -4.9866, 0.123234, 4, 5, 4, 3
+Exxon Mobil, -5.16575, 0.102673, 4, 5, 4, 3
+Alphabet, -4.50628, 0.271987, 4, 5, 4, 3
+AmerisourceBergen, -3.80259, 0.498451, 5, 1, 1, 3
+Cigna, -4.75638, -0.0132502, 4, 5, 4, 3
+Ford Motor, -4.2291, 0.443626, 5, 5, 4, 3
+General Motors, -4.69796, -0.498732, 4, 5, 4, 3
+Centene, -4.97564, 0.108221, 4, 5, 4, 3
+Meta Platforms, -4.66283, 0.0939983, 4, 5, 4, 3
+Comcast, -4.12806, 0.104511, 5, 5, 4, 3
+Bank of America, -4.57558, 0.0545999, 4, 5, 4, 3
+Procter & Gamble, -5.0811, -0.232332, 4, 5, 4, 3
+Lockheed Martin, -3.86148, 0.38928, 5, 1, 1, 3
+Morgan Stanley, -0.093927, 0.445551, 3, 2, 3, 3
+Allstate, -4.82661, -0.0108533, 4, 5, 4, 3
+AIG, -4.49993, 0.384271, 4, 5, 4, 3
+Best Buy, -5.20553, 0.0805291, 4, 5, 4, 3
+Sysco, -4.92931, -0.00975025, 4, 5, 4, 3
+Publix Super Markets, -4.44134, -0.0697572, 4, 5, 4, 3
+Deere, -4.52427, -0.000419508, 4, 5, 4, 3
+Abbott Laboratories, -5.11857, 0.046385, 4, 5, 4, 3
+Enterprise Products Partners, -4.44053, -0.127307, 4, 5, 4, 3
+Coca-Cola, -4.95613, -0.0072071, 4, 5, 4, 3
+CHS, -3.57923, -0.262513, 5, 1, 1, 3
+Honeywell International, -4.8664, -0.349009, 4, 5, 4, 3
+Capital One Financial, -4.56229, -0.0831019, 4, 5, 4, 3
+Philip Morris International, -3.4841, -0.0112144, 5, 1, 1, 3
+Paramount Global, -5.01694, -0.156285, 4, 5, 4, 3
+US Foods Holding, -4.46362, 0.241499, 4, 5, 4, 3
+Eli Lilly, -3.31506, 0.205066, 5, 1, 1, 3
+Hewlett Packard Enterprise, -4.6866, 0.174298, 4, 5, 4, 3
+CBRE Group, -4.40698, -0.0248273, 4, 5, 4, 3
+PBF Energy, -3.86691, 0.187732, 5, 1, 1, 3
+Nvidia, -4.6253, -0.072494, 4, 5, 4, 3
+Salesforce, -5.10694, -0.266208, 4, 5, 4, 3
+Amgen, -5.14063, -0.0737166, 4, 5, 4, 3
+Paccar, -5.47383, 0.157544, 4, 5, 5, 3
+Hartford Financial Services Group, -5.47432, -0.0717094, 4, 5, 5, 3
+Aflac, -4.50862, 0.0407187, 4, 5, 4, 3
+CDW, -4.38103, 0.0944971, 4, 5, 4, 3
+ManpowerGroup, -4.18201, 0.132147, 5, 5, 4, 3
+CarMax, -3.20613, -0.296198, 5, 1, 1, 3
+Builders FirstSource, -4.40556, -0.0728208, 4, 5, 4, 3
+Lumen Technologies, -5.20493, -0.151225, 4, 5, 4, 3
+Kohl's, -4.63113, 0.0320431, 4, 5, 4, 3
+EOG Resources, -4.25698, 0.167974, 5, 5, 4, 3
+Waste Management, -4.79944, -0.0690948, 4, 5, 4, 3
+Viatris, -4.59141, 0.0822762, 4, 5, 4, 3
+L3Harris Technologies, -5.09159, -0.0283986, 4, 5, 4, 3
+Uber Technologies, -2.97729, 0.0633899, 5, 1, 1, 3
+Targa Resources, -5.60147, -0.120937, 4, 3, 5, 3
+PPG Industries, -3.06905, 0.0662911, 5, 1, 1, 3
+Kinder Morgan, -3.7505, -0.15014, 5, 1, 1, 3
+Advanced Micro Devices, -5.84043, -0.229914, 4, 3, 5, 3
+Fiserv, -4.28375, 0.0709438, 5, 5, 4, 3
+Bank of New York Mellon, -4.66714, -0.186701, 4, 5, 4, 3
+Southwest Airlines, -5.20542, -0.157948, 4, 5, 4, 3
+Murphy USA, -4.50978, -0.0360218, 4, 5, 4, 3
+Edison International, -4.71723, 0.0331046, 4, 5, 4, 3
+Loews, -6.23168, -0.167829, 4, 3, 5, 3
+Illinois Tool Works, -4.81205, -0.0942626, 4, 5, 4, 3
+Berry Global Group, -5.46945, 0.334794, 4, 5, 5, 3
+Ball, -5.23447, -0.086958, 4, 5, 4, 3
+Xcel Energy, -5.36064, -0.0791937, 4, 5, 5, 3
+Discover Financial Services, -4.52129, -0.0874567, 4, 5, 4, 3
+LKQ, -3.88647, 0.193099, 5, 1, 1, 3
+XPO Logistics, -5.74822, -0.268867, 4, 3, 5, 3
+Andersons, -3.99068, -0.0840308, 5, 1, 4, 3
+Keurig Dr Pepper, -4.57304, -0.24504, 4, 5, 4, 3
+Universal Health Services, -4.53317, 0.0427379, 4, 5, 4, 3
+Vistra, -5.2754, -0.0973518, 4, 5, 4, 3
+Entergy, -4.96357, -0.0491132, 4, 5, 4, 3
+DaVita, -3.6983, 0.0896977, 5, 1, 1, 3
+Liberty Media, -4.79391, -0.240055, 4, 5, 4, 3
+Quest Diagnostics, -4.03867, -0.0306796, 5, 1, 4, 3
+Thrivent Financial for Lutherans, -4.80905, -0.13554, 4, 5, 4, 3
+Molson Coors Beverage, -4.46538, -0.00741905, 4, 5, 4, 3
+Asbury Automotive Group, -3.7224, -0.0431278, 5, 1, 1, 3
+Intuit, -5.11955, -0.266504, 4, 5, 4, 3
+Cincinnati Financial, -4.46573, 0.396253, 4, 5, 4, 3
+Erie Insurance Group, -4.60026, 0.294879, 4, 5, 4, 3
+ODP, -1.91566, -0.293539, 2, 6, 2, 3
+Amazon, -2.46755, 0.188507, 2, 1, 1, 4
+CVS Health, -3.34509, 0.461117, 5, 1, 1, 4
+UnitedHealth Group, -1.44157, 0.354864, 2, 6, 2, 4
+Microsoft, -2.74995, -0.104973, 5, 1, 1, 4
+Chevron, -2.0823, -0.0177446, 2, 6, 2, 4
+Anthem, -4.40933, 0.924251, 4, 5, 4, 4
+Valero Energy, -3.61881, -0.37373, 5, 1, 1, 4
+Fannie Mae, -2.72663, -0.110249, 5, 1, 1, 4
+Humana, -2.9266, -0.145097, 5, 1, 1, 4
+Pfizer, -3.77486, -0.183002, 5, 1, 1, 4
+Citigroup, -4.98816, -0.204885, 4, 5, 4, 4
+MetLife, -3.08366, 0.0748302, 5, 1, 1, 4
+Prudential Financial, -4.07521, -0.362321, 5, 5, 4, 4
+Boeing, -3.83353, -5.08e-005, 5, 1, 1, 4
+Dow, -2.91048, -0.216464, 5, 1, 1, 4
+Tesla, -3.2554, 0.222628, 5, 1, 1, 4
+Charter Communications, -3.43507, -0.185572, 5, 1, 1, 4
+Merck, -6.57803, 0.985668, 1, 3, 6, 4
+TJX, -3.91852, -0.0131872, 5, 1, 1, 4
+ConocoPhillips, -3.48331, 0.0560756, 5, 1, 1, 4
+Liberty Mutual Insurance Group, -5.58607, -0.186369, 4, 3, 5, 4
+Progressive, -2.86805, -0.0251967, 5, 1, 1, 4
+Bristol-Myers Squibb, -2.69447, -0.0037552, 5, 1, 1, 4
+Nike, -3.13552, 0.0311664, 5, 1, 1, 4
+Exelon, -3.40037, -0.1603, 5, 1, 1, 4
+Northrop Grumman, -3.25899, -0.299512, 5, 1, 1, 4
+TD Synnex, -3.27634, -0.0921528, 5, 1, 1, 4
+Performance Food Group, -6.09586, -0.164354, 4, 3, 5, 4
+Danaher, -3.68468, -0.0489471, 5, 1, 1, 4
+Jabil, -5.76465, 0.13781, 4, 3, 5, 4
+D.R. Horton, -4.39202, -0.460184, 4, 5, 4, 4
+Molina Healthcare, -3.2599, -0.111119, 5, 1, 1, 4
+United Natural Foods, -2.72141, 0.0648036, 5, 1, 1, 4
+Dollar Tree, -5.06086, -0.277498, 4, 5, 4, 4
+AutoNation, -2.84526, -0.0870734, 5, 1, 1, 4
+Macy's, -3.52246, -0.127156, 5, 1, 1, 4
+United Airlines Holdings, -4.63692, 0.0337043, 4, 5, 4, 4
+Visa, -3.13625, 0.349822, 5, 1, 1, 4
+McDonald's, -2.54774, -0.559382, 5, 1, 1, 4
+PG&E, -4.12133, 0.0138132, 5, 5, 4, 4
+Baker Hughes, -3.85059, 0.0757948, 5, 1, 1, 4
+United States Steel, -4.19117, -0.280094, 5, 5, 4, 4
+Becton Dickinson, -4.37136, -0.0593644, 4, 5, 4, 4
+Marsh & McLennan, -4.65619, -0.327646, 4, 5, 4, 4
+Jones Lang LaSalle, -2.7213, 0.0618453, 5, 1, 1, 4
+Ross Stores, -2.69054, -0.128117, 5, 1, 1, 4
+Mastercard, -3.7018, -0.0714037, 5, 1, 1, 4
+Cognizant Technology Solutions, -4.03603, -0.062986, 5, 1, 4, 4
+Steel Dynamics, -2.07992, -0.00400542, 2, 6, 2, 4
+HF Sinclair, -2.29669, 0.999837, 2, 6, 2, 4
+Texas Instruments, -5.59714, 0.0173458, 4, 3, 5, 4
+Emerson Electric, -3.0007, -0.00741542, 5, 1, 1, 4
+Block, -3.83847, 0.398737, 5, 1, 1, 4
+Colgate-Palmolive, -4.56227, -0.130565, 4, 5, 4, 4
+Stanley Black & Decker, -4.388, -0.0673824, 4, 5, 4, 4
+NextEra Energy, -3.35228, -0.0499209, 5, 1, 1, 4
+Western Digital, -3.42901, 0.0870097, 5, 1, 1, 4
+Expeditors Intl. of Washington, -4.69418, -0.925065, 4, 5, 4, 4
+Land O'Lakes, -3.71395, -0.0387741, 5, 1, 1, 4
+Automatic Data Processing, -4.48731, -0.230581, 4, 5, 4, 4
+BorgWarner, -3.53284, -0.0609579, 5, 1, 1, 4
+Nordstrom, -3.03802, 0.114122, 5, 1, 1, 4
+Otis Worldwide, -3.2129, -0.276067, 5, 1, 1, 4
+Dominion Energy, -4.49138, 0.288257, 4, 5, 4, 4
+Reliance Steel & Aluminum, -8.15728, 0.676584, 1, 4, 7, 4
+Qurate Retail, -1.87466, 0.220885, 2, 6, 2, 4
+PulteGroup, -4.00822, -0.0648209, 5, 1, 4, 4
+Group 1 Automotive, -3.03552, -0.120986, 5, 1, 1, 4
+Leidos Holdings, -5.10617, -0.24641, 4, 5, 4, 4
+O'Reilly Automotive, -3.6758, -0.375483, 5, 1, 1, 4
+Global Partners, -3.6104, -0.120383, 5, 1, 1, 4
+Jones Financial (Edward Jones), -4.94027, 0.0235469, 4, 5, 4, 4
+Community Health Systems, -4.19947, -0.159402, 5, 5, 4, 4
+Devon Energy, -5.43196, -0.0261684, 4, 5, 5, 4
+Peter Kiewit Sons', -3.64326, 0.171672, 5, 1, 1, 4
+Aramark, -3.77112, 0.104739, 5, 1, 1, 4
+State Street, -3.70182, -0.181976, 5, 1, 1, 4
+Westlake, -4.81586, 0.166543, 4, 5, 4, 4
+International Flavors & Fragrances, -2.83394, -0.0144823, 5, 1, 1, 4
+Mohawk Industries, -5.61879, 0.0382557, 4, 3, 5, 4
+Equitable Holdings, -3.20727, -0.00172837, 5, 1, 1, 4
+Advance Auto Parts, -2.27324, -0.14477, 2, 6, 2, 4
+Auto-Owners Insurance, -2.85243, -0.00787416, 5, 1, 1, 4
+DCP Midstream, -6.63988, 0.0667576, 1, 3, 6, 4
+Delek US Holdings, -2.02529, 0.0793043, 2, 6, 2, 4
+Eastman Chemical, -4.32424, -0.78962, 5, 5, 4, 4
+Altice USA, -4.60859, -0.224795, 4, 5, 4, 4
+MGM Resorts International, -3.22876, 0.0183515, 5, 1, 1, 4
+Huntington Ingalls Industries, -4.48089, 0.026364, 4, 5, 4, 4
+Burlington Stores, -5.26822, -0.58391, 4, 5, 4, 4
