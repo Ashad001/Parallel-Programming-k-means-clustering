@@ -37,9 +37,7 @@ int main(int argc, char const *argv[])
     vector<double> close_values;
     vector<double> volumes;
 
-    fin.open("lastest_data.csv");    
-    fout1.open("data.csv");
-    fout2.open("display.csv");
+    fin.open("BigData.csv");    
     if(!fin.is_open())
     {
         cout << "Error opening file" << endl;

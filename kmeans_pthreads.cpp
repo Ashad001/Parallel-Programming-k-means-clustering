@@ -5,28 +5,24 @@
 #include <vector>
 #include <math.h>
 #include <limits>
+#include <chrono>
 #include <pthread.h>
 using namespace std;
 
-int K = 5;
-int N = 500;
-int num_threads=100;
+#define NO_OF_PARAMS 385
+#define K 5
+#define N 300
+
+int num_threads = 5;
 int max_iter = 10;
 pthread_mutex_t centroid_mutex;
-// Stock movements and Volumes
-class Stock
+struct Stock
 {
-public:
-    // string name;
-    double movement;
-    double volume;
+    vector<double> parameters = vector<double>(NO_OF_PARAMS, 0);
     int cluster;
-    Stock(double movement = 0.f, double volume = 0.f)
+    Stock()
     {
-        // this->name = name;
-        this->movement = movement;
-        this->volume = volume;
-        this->cluster = -1;
+        cluster = -1;
     }
 };
 
@@ -34,30 +30,64 @@ vector<Stock> stocks;
 vector<Stock> centroids;
 void DataRead(string fileName)
 {
-    ifstream file(fileName);
+    ifstream infile(fileName);
+    vector<vector<double>> data;
     string line;
-    while (getline(file, line))
+    stocks.resize(N);
+    if (!infile)
     {
-        stringstream ss(line);
-        string comma;
-        double movement;
-        long double volume;
-        ss >> movement >> comma >> volume;
-        Stock stock(movement, volume);
-        stocks.push_back(stock);
+        cout << "File not found" << endl;
+        exit(0);
     }
+
+    // skip the first line
+    getline(infile, line);
+
+    while (getline(infile, line))
+    {
+        vector<double> row;
+        stringstream ss(line);
+        string value_str;
+        while (getline(ss, value_str, ','))
+        {
+            double value = stod(value_str);
+            row.push_back(value);
+        }
+        data.push_back(row);
+    }
+    for (int i = 0; i < N; i++)
+    {
+        stocks[i].parameters = data[i];
+    }
+    // count number of rows
+    int No = data.size();
+    cout << "Number of rows: " << No << endl;
+    // count number of each columns
+    int M = data[100].size();
+    cout << "Number of columns: " << M << endl;
 }
-Stock addTwo(Stock a, Stock b)
+Stock addTwo(const Stock &a, const Stock &b)
 {
     Stock c;
-    c.movement = a.movement + b.movement;
-    c.volume = a.volume + b.volume;
+    for (int i = 0; i < NO_OF_PARAMS; i++)
+    {
+        c.parameters[i] = a.parameters[i] + b.parameters[i];
+    }
+    return c;
+}
+Stock divideTwo(const Stock &stock1, const int count)
+{
+    Stock c;
+    for (int i = 0; i < NO_OF_PARAMS; i++)
+    {
+        c.parameters[i] = stock1.parameters[i] / static_cast<double>(count);
+    }
     return c;
 }
 void mean_recompute()
 {
     int count[K] = {0};
-    Stock sum[K] = {Stock(0, 0)};
+    Stock sum[K] = {Stock()};
     for (int i = 0; i < N; i++)
     {
         count[stocks[i].cluster]++;
@@ -65,15 +95,18 @@ void mean_recompute()
     }
     for (int i = 0; i < K; i++)
     {
-        centroids[i].movement = sum[i].movement / count[i];
-        centroids[i].volume = sum[i].volume / count[i];
+        centroids[i] = divideTwo(sum[i], count[i]);
     }
 }
-double EuclideanDistance(Stock a, Stock b)
+
+double computeDistance(const Stock a, const Stock b)
 {
-    double x = a.movement - b.movement;
-    double y = a.volume - b.volume;
-    return sqrt(x * x + y * y);
+    double distance = 0.0;
+    for (int i = 0; i < NO_OF_PARAMS; i++)
+    {
+        distance += pow(a.parameters[i] - b.parameters[i], 2);
+    }
+    return distance;
 }
 void AssignClusters()
 {
@@ -82,7 +115,7 @@ void AssignClusters()
     {
         for (int j = 0; j < K; j++)
         {
-            distances[j] = EuclideanDistance(stocks[i], centroids[j]);
+            distances[j] = computeDistance(stocks[i], centroids[j]);
         }
         int index = 0;
         for (int y = 1; y < K; y++)
@@ -100,25 +133,21 @@ void *thread_runner(void *tid)
     int *t_id = (int *)tid;
     int start = (N * (*t_id)) / num_threads;
     int end = (N * ((*t_id) + 1)) / num_threads;
-    if (*t_id == num_threads - 1)
+    for (int i = start; i < end; i++)
     {
-        end = N;
-        for (int i = start; i < end; i++)
+        pthread_mutex_lock(&centroid_mutex);
+        int min = INT_MAX;
+        int index = -1;
+        for (int j = 0; j < K; j++)
         {
-            int min = 9999999;
-            int index = -1;
-            for (int j = 0; j < K; j++)
+            double dist = computeDistance(stocks[i], stocks[j]);
+            if (dist < min)
             {
-                double dist = EuclideanDistance(stocks[i], stocks[j]);
-                if (dist < min)
-                {
-                    index = i;
-                }
+                index = i;
             }
-            pthread_mutex_lock(&centroid_mutex);
-            stocks[i].cluster = index;
-            pthread_mutex_unlock(&centroid_mutex);
         }
+        stocks[i].cluster = index;
+        pthread_mutex_unlock(&centroid_mutex);
     }
     return NULL;
 }
@@ -137,7 +166,7 @@ void Kmeans_pthread()
     {
         AssignClusters();
         mean_recompute();
-        int old[N];
+        int old[N] = {0};
         for (int i = 0; i < N; i++)
         {
             old[i] = stocks[i].cluster;
@@ -159,28 +188,39 @@ void Kmeans_pthread()
             if (old[i] == stocks[i].cluster)
                 count++;
         }
-    } while (itreation!=max_iter);
+    } while (itreation != max_iter);
 }
 
 int main(int argc, char const *argv[])
 {
-    string fileName = "normalized_data.csv";
+    string fileName = "StockData.csv";
+    chrono::duration<double> elapsed;
+    chrono::high_resolution_clock::time_point start = chrono::high_resolution_clock::now();
     DataRead(fileName);
     Kmeans_pthread();
-    cout  << endl << endl;
+    cout << endl
+         << endl;
     ofstream myfile;
     myfile.open("output.csv");
+
+    ofstream file("output2.csv");
     for (int i = 0; i < K; i++)
     {
-        cout << "Cluster " << i << endl;
+        cout << " ---------------------- Cluster ---------------------- " << i << endl;
         for (int j = 0; j < N; j++)
         {
             if (stocks[j].cluster == i)
             {
-                myfile << i << ", " << stocks[j].movement << ", " << stocks[j].volume << endl;
-                cout << " ==> " << stocks[j].movement << " " << stocks[j].volume << endl;
+                // Print Names
+                file << stocks[j].parameters[0] << ", " << stocks[j].parameters[1] << ", " << stocks[j].parameters[2] << ", " << stocks[j].parameters[3] << ", " << stocks[j].parameters[4] << ", " << stocks[j].cluster << endl;
+                cout << stocks[j].parameters[0] << endl;
             }
         }
     }
+    myfile.close();
+    chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
+    elapsed = end - start;
+    cout << "Time taken by function: " << elapsed.count() << " seconds" << endl;
+
     return 0;
 }
