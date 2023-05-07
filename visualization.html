@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Visualization</title>
+  <style>
+    body {
+      background: #38ADAE;
+      background: -webkit-linear-gradient(to right, #b9b8b8, #595959);
+      background: linear-gradient(to right, #b1d2e7, #c6d9f1 );
+      /* background: linear-gradient(to right, #9ed487,  #cfe6d4 ); */
+    }
+
+    h1 {
+      font-family: Arial, sans-serif;
+      font-size: 32px;
+      color: rgb(29, 0, 0);
+      text-align: center;
+      margin-top: 0px;
+    }
+
+    h2 {
+      font-family: Arial, sans-serif;
+      font-size: 32px;
+      color: rgb(29, 0, 0);
+      text-align: center;
+      
+      margin-bottom: 50px;
+      margin-top: 10px;
+    }
+
+    header {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 10px 5px;
+        position: relative;
+    }
+
+    header h1 {
+        font-family: Arial, sans-serif;
+        font-size: 22px;
+        color: rgb(29, 0, 0);
+        text-align: left;
+        margin-top: 0px;
+        opacity: 1;
+    }
+
+    .code-blocks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .code-block {
+      width: 300px;
+      min-height: 400px;
+      margin: 10px;
+      border: 1px solid black;
+      overflow: auto;
+      position: relative;
+      background-color: #0f1820;
+      padding: 10px;
+    }
+
+    .code-block-title {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      color: white;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .code-block.active {
+      height: auto !important;
+      z-index: 10;
+    }
+
+    .code-block-view {
+      display: inline-block;
+      width: 150px;
+      height: 50px;
+      background-color: #34495e;
+      border: none;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .code-block-view:hover {
+      background-color: #2c3e50;
+    }
+
+    .code-block-view-text {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: white;
+    }
+
+
+    /* .visualize-button {
+      display: inline-block;
+      width: 200px;
+      height: 50px;
+      background-color: white;
+      border: 1px solid black;
+      text-align: center;
+      line-height: 50px;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      color: black;
+      cursor: pointer;
+      margin-top: 50px;
+    } */
+
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #bdc3c7;
+    }
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Inconsolata", monospace;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #050801;
+    }
+
+    p{
+        color: #fff;
+        text-align:center;
+        margin-top: 10px
+    }
+
+    a {
+        position: relative;
+        display: inline-block;
+        padding: 2px 5px;
+        margin-right: 5px;
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        transition: 0.5s;
+    }
+
+    .btns{
+        display:flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        min-height: -10vh;
+          
+    }
+    .btn-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 0px;
+        margin-top: -40px;
+    }
+
+    .blue-btn{
+        color: #000000;
+        /* border: 1.5px solid #152e2f;
+        border-radius: 5px;   */
+    }
+    .blue-btn:hover{
+        background-color: #1f1e1e;
+        color: #ffffff;
+        box-shadow: 0px 0px 5px #5b5b5b, 0px 0px 25px #192b2d, 0px 0px 50px #243234, 0px 0px 100px #3a4d4e;
+        -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(42, 40, 40, 0.333)); 
+    }
+    .pink-btn{
+        color: #000000;
+        /* border: 1.5px solid #0c0131;
+        border-radius: 5px;   */
+    }
+    .pink-btn:hover{
+        background-color: #1d143b;
+        color: #ffffff;
+        box-shadow: 0px 0px 5px #3f3e45, 0px 0px 25px #4a4a4f, 0px 0px 50px #403d4d, 0px 0px 100px #3b374c;
+        -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(42, 40, 40, 0.333)); 
+    }
+  </style>
+</head>
+<body>
+<header>
+    <h1>K-means Clustering</h1>
+    <div class="btns">
+        <div class="btn-container">
+        <a class="blue-btn" href="index.html">Code Comparison</a>
+        <a class="pink-btn" href="team.html">Team</a>
+        </div>
+    </div>
+</header>
+  <h2>Visualization</h2>
+  <!-- Visualization content goes here -->
+
+  
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>K-MEANS CLUSTERING</title>
+  <style>
+    body {
+      background: #38ADAE;
+      background: -webkit-linear-gradient(to right, #b9b8b8, #595959);
+      background: linear-gradient(to right, #74c1f5, #c6d9f1 );
+    }
+
+    h1 {
+      font-family: Arial, sans-serif;
+      font-size: 22px;
+      color: rgb(29, 0, 0);
+      text-align: left;
+      margin-top: 50px;
+    }
+    h2 {
+      font-family: Arial, sans-serif;
+      font-size: 32px;
+      color: rgb(29, 0, 0);
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 50px;
+    }
+    h3 {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      color: rgb(29, 0, 0);
+      text-align: center;
+      margin-top: -40px;
+      margin-bottom: 0px;
+      opacity: 0.4;
+    }
+    h3.hidden {
+      display: none;
+    }
+
+    h2:hover + h3 {
+      display: block;
+    }
+
+
+    header {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 10px 5px;
+    }
+
+    header h1 {
+        font-family: Arial, sans-serif;
+        font-size: 22px;
+        color: rgb(29, 0, 0);
+        text-align: left;
+        margin-top: 0px;
+        opacity: 1;
+        
+        /* box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.4)); */
+    }
+
+    header h1:hover {
+      -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.4));
+      /* -webkit-box-reflect: none; */
+      /* box-reflect: none; */
+    }
+
+
+    .code-blocks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 0px;
+    }
+
+    .code-block {
+      width: 300px;
+      min-height: 400px;
+      margin: 10px;
+      border: 1px solid black;
+      overflow: auto;
+      position: relative;
+      background-color: #0f1820;
+      padding: 10px;
+    }
+
+    .code-block-title {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      color: white;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .code-block.active {
+      height: auto !important;
+      z-index: 10;
+    }
+
+    .code-block-view {
+      display: inline-block;
+      width: 150px;
+      height: 50px;
+      background-color: #34495e;
+      border: none;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .code-block-view:hover {
+      background-color: #2c3e50;
+    }
+
+    .code-block-view-text {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: white;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #bdc3c7;
+    }
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Inconsolata", monospace;
+        /* box-sizing: border-box; */
+    }
+
+    body {
+        background-color: #050801;
+    }
+
+    p{
+        color: #fff;
+        text-align:center;
+        margin-top: 10px
+    }
+
+    a {
+        position: relative;
+        display: inline-block;
+        padding: 2px 5px;
+        margin-right: 5px;
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        transition: 0.5s;
+    }
+
+    .btns{
+        display:flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        min-height: -10vh;
+          
+    }
+    .btn-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 0px;
+        margin-top: -40px;
+    }
+
+    .blue-btn{
+        color: #000000;
+        /* border: 1.5px solid #152e2f;
+        border-radius: 5px;   */
+    }
+    .blue-btn:hover{
+        background-color: #1f1e1e;
+        color: #ffffff;
+        box-shadow: 0px 0px 5px #5b5b5b, 0px 0px 25px #192b2d, 0px 0px 50px #243234, 0px 0px 100px #3a4d4e;
+        -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(42, 40, 40, 0.333)); 
+    }
+    .pink-btn{
+        color: #000000;
+        /* border: 1.5px solid #0c0131;
+        border-radius: 5px;   */
+    }
+    .pink-btn:hover{
+        background-color: #1d143b;
+        color: #ffffff;
+        box-shadow: 0px 0px 5px #3f3e45, 0px 0px 25px #4a4a4f, 0px 0px 50px #403d4d, 0px 0px 100px #3b374c;
+        -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(42, 40, 40, 0.333)); 
+    }
+    .spinner {
+        position: fixed;
+        z-index: 9999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    body.loading {
+        filter: blur(0.9px);
+    }
+    .spinner::before,
+    .spinner::after{
+        content: "";
+        position: absolute;
+        border-radius: inherit;
+    }
+    .spinner:before {
+        width: 100%;
+        height: 100%;
+        background-image:linear-gradient(
+            0deg,#0f040c 0%,
+            #0d0d2a 100%
+        ) ;
+        animation: spin .5s infinite linear;
+    }
+    .spinner:after {
+        width: 85%;
+        height: 85%;
+        background-color: #282424;
+        opacity: 0.5;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+
+  </style>
+</head>
+<body>
+<header>
+  <h1>K-means Clustering</h1>
+  <div class="btns">
+    <div class="btn-container">
+        <a class="pink-btn" href="#">Visualize</a>
+        <a class="blue-btn" href="team.html">Team</a>
+    </div>
+  </div>     
+</header>
+    <h2>Code Comparison</h2>
+    <h3 class="hidden">Parallelism vs Serialism</h3>
+    <!-- <h3>- Parrallelism VS Seriallism</h3> -->
+    <!-- <h2>Code Comparison<span class="hover-text">- Parrallelism VS Seriallism</span></h2> -->
+
+  <div class="code-blocks">
+    <div class="code-block">
+      <div class="code-block-title">Code Block 1</div>
+      <pre id="code-block-1">
+        <code>
+          //200 line c++ code here
+        </code>
+      </pre>
+      <div class="code-block-view" onclick="toggleCodeBlock('code-block-1')">View</div>
+    </div>
+    <div class="code-block">
+        <div class="code-block-title">Code Block 2</div>
+        <pre id="code-block-2">
+          <code>
+            //200 line c++ code here
+          </code>
+        </pre>
+    <div class="code-block-view" onclick="toggleCodeBlock('code-block-2')">View</div>
+  </div>
+  <div class="code-block">
+    <div class="code-block-title">Code Block 3</div>
+    <pre id="code-block-3">
+      <code>
+        //200 line c++ code here
+      </code>
+    </pre>
+    <div class="code-block-view" onclick="toggleCodeBlock('code-block-3')">View</div>
+  </div>
+</div>
+<!-- <div class="btns">
+    <a class="pink-btn" href="visualization.html">Visualize</a>
+    <a class="blue-btn" href="team.html">Team</a>
+    <button class="blue-btn" id="team-btn">Team</button>
+</div> -->
+
+
+
+<script>
+    function toggleCodeBlock(blockId) { 
+      var block = document.getElementById(blockId);
+      var viewButton = block.nextElementSibling;
+      var codeBlocks = document.getElementsByClassName("code-block");
+      
+      for (var i = 0; i < codeBlocks.length; i++) {
+        if (codeBlocks[i] === block) {
+          block.classList.toggle("active");
+          viewButton.innerText = block.classList.contains("active") ? "Hide" : "View";
+        } else {
+          codeBlocks[i].classList.remove("active");
+          codeBlocks[i].querySelector(".code-block-view").innerText = "View";
+        }
+      }
+    }
+    function showLoader() {
+        // create a div element with class "spinner"
+        const spinner = document.createElement("div");
+        document.body.classList.add('loading');
+        spinner.classList.add("spinner");
+
+        // add the spinner to the page
+        document.body.appendChild(spinner);
+
+        // set a timeout to remove the spinner after 2 seconds
+        setTimeout(() => {
+            spinner.remove();
+            window.location.href = "visualization.html"; // redirect to visualize.html
+            document.body.classList.remove('loading');
+        }, 2000);
+    }
+
+        // add an onclick event to the button that calls the showLoader function
+        const button = document.querySelector(".pink-btn");
+        button.onclick = showLoader;
+
+</script>
+</body>
+</html>
