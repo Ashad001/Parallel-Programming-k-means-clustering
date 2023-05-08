@@ -181,8 +181,8 @@ int main(int argc, char const *argv[])
 {
     string fileName = "StockData.csv";
     int K = 5;
-    int N = 300;
-    int max_iter = 300;
+    int N = 399;
+    int max_iter = 200;
     chrono::duration<double> elapsed;
     KMeans kmeans(fileName, K, N, max_iter);
     auto start = chrono::high_resolution_clock::now();

@@ -83,7 +83,7 @@ public:
                 {
                     names.push_back(value_str);
                 }
-                if (count != 0)
+                if (count >= 1)
                 {
                     double value = stod(value_str);
                     row.push_back(value);
@@ -103,26 +103,24 @@ public:
     {
         int count[K] = {0};
         Stock sum[K] = {Stock()};
-#pragma omp parallel for
+#pragma omp parallel for reduction(+ \
+                                   : count[:K]) 
         for (int i = 0; i < this->N; i++)
         {
-#pragma omp critical
             count[stocks[i].cluster]++;
+            #pragma omp critical
             sum[stocks[i].cluster] = addTwo(sum[stocks[i].cluster], stocks[i]);
         }
         for (int i = 0; i < this->K; i++)
         {
-
             centroids[i] = divideTwo(sum[i], count[i]);
         }
     }
     Stock divideTwo(const Stock &stock1, const int count)
     {
         Stock c;
-#pragma omp parallel for
         for (int i = 0; i < NO_OF_PARAMS; i++)
         {
-#pragma omp critical
             c.parameters[i] = stock1.parameters[i] / static_cast<double>(count);
         }
         return c;
@@ -130,17 +128,14 @@ public:
     Stock addTwo(const Stock &a, const Stock &b)
     {
         Stock c;
-#pragma omp parallel for
         for (int i = 0; i < NO_OF_PARAMS; i++)
         {
-#pragma omp critical
             c.parameters[i] = a.parameters[i] + b.parameters[i];
         }
         return c;
     }
     void AssignClusters()
     {
-
         vector<double> distances(this->K, 0);
 #pragma omp parallel for
         for (int i = 0; i < N; i++)
@@ -152,9 +147,9 @@ public:
             int index = 0;
             for (int k = 1; k < this->K; k++)
             {
-
                 if (distances[k] < distances[index])
                 {
+// #pragma omp critical
                     index = k;
                 }
             }
@@ -166,9 +161,7 @@ public:
 
     double computeDistance(const Stock a, const Stock b)
     {
-
         double distance = 0.0;
-
 #pragma omp parallel for reduction(+ : distance)
         for (int i = 0; i < NO_OF_PARAMS; i++)
         {
@@ -183,7 +176,7 @@ public:
         {
             centroids.push_back(stocks[i]);
         }
-#pragma omp parallel for
+#pragma omp parallel for num_threads(10)
         for (int i = 0; i < this->max_iter; i++)
         {
             AssignClusters();
@@ -213,7 +206,7 @@ int main(int argc, char const *argv[])
     string fileName = "StockData.csv";
     int K = 5;
     int N = 380;
-    int max_iter = 300;
+    int max_iter = 200;
     chrono::duration<double> elapsed;
     auto start = chrono::high_resolution_clock::now();
     KMeans kmeans(fileName, K, N, max_iter);
@@ -221,6 +214,6 @@ int main(int argc, char const *argv[])
     kmeans.Print();
     auto finish = chrono::high_resolution_clock::now();
     elapsed = finish - start;
-    cout <<  "\n\nElapsed time: " << elapsed.count() << " s\n\n";
+    cout << "\n\nElapsed time: " << elapsed.count() << " s\n\n";
     return 0;
 }
